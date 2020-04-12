@@ -1,5 +1,5 @@
 ---
-title: "Let's talk about resiliency"
+title: "Let's talk about resiliency: How to make fault tolerant software"
 date: 2020-04-10
 draft: true
 hero: "/images/hero-3.jpg"
