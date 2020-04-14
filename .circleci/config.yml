@@ -1,15 +1,14 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 jobs:
-	  build:
-	    docker:
-	      - image: cibuilds/hugo:0.67
-	    steps:
-	      - checkout
-	      - run:
-	          name: "Build Website with Hugo"
-	          command: HUGO_ENV=production hugo -v -s
-	      - run:
-	          name: "Test The Website"
-	          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
-	      
+  build:
+    docker:
+      - image: cibuilds/hugo:0.67.0
+    steps:
+      - checkout
+      - run:
+          name: "Build Website with Hugo"
+          command: HUGO_ENV=production hugo -v -s
+      - run:
+          name: "Test The Website"
+          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
