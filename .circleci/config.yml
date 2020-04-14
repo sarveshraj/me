@@ -1,27 +1,15 @@
-version: 2
+version: 2.1
 jobs:
-  build:
-    docker:
-      - image: cibuilds/hugo:latest
-    working_directory: ~/hugo
-    environment:
-      HUGO_BUILD_DIR: ~/hugo/public
-    steps:
-
-      # install git
-      - run: apk update && apk add git
-
-      # checkout the repository
-      - checkout
-
-      # install git submodules for managing third-party dependencies
-      - run: git submodule sync && git submodule update --init
-
-      # build with Hugo
-      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
- 
-      - run:
-          name: test our generated HTML files
-          command: |
-            htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
-            --empty-alt-ignore --disable-external
+	  build:
+	    docker:
+	      - image: cibuilds/hugo:0.69
+	    steps:
+	      - checkout
+        - run: git submodule sync && git submodule update --init
+	      - run:
+	          name: "Build Website with Hugo"
+	          command: HUGO_ENV=production hugo -v -s
+	      - run:
+	          name: "Test The Website"
+	          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
+	      
