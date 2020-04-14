@@ -1,0 +1,6 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Sarvesh Raj"
+theme = "novela"
+[taxonomies]
+author = "authors"

@@ -1,0 +1,164 @@
+.hero-subheading {
+    margin: 0;
+}
+
+th {
+    padding: 15px 30px;
+}
+
+.code-toolbar>.toolbar>.toolbar-item>button {
+    font-size: 13px;
+    padding: 8px 10px;
+}
+
+.nav-links {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.nav-link {
+    opacity: 0.6;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+    margin-right: 30px;
+    color: var(--primary);
+}
+
+.text-link {
+    font-size: 24px;
+    font-family: "Merriweather", Georgia, serif;
+    margin-bottom: -5px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    opacity: 1;
+    text-decoration: none;
+}
+
+.nav-link:visited {
+    color: var(--primary);
+}
+
+@media screen and (max-width:1070px) {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        max-width: 507px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    blockquote>p {
+        padding-right: 36px;
+    }
+}
+
+@media screen and (max-width:737px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        max-width: 486px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    .section.narrow {
+        padding: 0 0;
+    }
+
+    blockquote {
+        padding: 0 0;
+    }
+
+    blockquote p {
+        font-size: 26px;
+        padding: 0 180px !important;
+    }
+}
+
+@media screen and (max-width:540px) {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        max-width: 540px;
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .section.narrow>p {
+        padding: 0 2em;
+    }
+
+    .post-content {
+        padding: 60px 0 35px;
+    }
+
+    blockquote p {
+        padding: 0 20px 0 40px !important;
+    }
+
+    th {
+        padding: 15px 20px;
+    }
+    .text-link {
+        font-size: 20px;
+        margin-bottom: -2px;
+    }
+    .nav-link {
+        margin-right: 15px;
+    }
+}
