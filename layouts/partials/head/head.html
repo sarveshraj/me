@@ -8,6 +8,7 @@
     {{ $prism := resources.Get "css/prism.css" }}
     <link rel="stylesheet" href="{{ $prism.RelPermalink }}" />
     <link href="{{ .Site.BaseURL }}css/custom.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     {{ partial "seo/print.html" . }}
     {{ with .Params.forestry_instant_preview_id }}

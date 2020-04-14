@@ -55,8 +55,28 @@ th {
     color: var(--primary);
 }
 
-@media screen and (max-width:1070px) {
+blockquote {
+    font-style: normal;
+    padding: 60px 0 0;
+    position: relative;
+}
 
+blockquote:before {
+    position: absolute;
+    font-family: 'FontAwesome';
+    top: 0;
+    left: 100px;
+    content:"\f10d";
+    font-size: 200px;
+    color: rgba(0,0,0,0.1);
+}
+
+blockquote p {
+    padding: 10px 30px;
+    text-align: center;
+}
+
+@media screen and (max-width:1070px) {
     h1,
     h2,
     h3,
@@ -78,8 +98,16 @@ th {
         font-size: 24px;
     }
 
-    blockquote>p {
+    blockquote > p {
         padding-right: 36px;
+    }
+
+    blockquote:before {
+        left: 0px;
+    }
+
+    th {
+        padding: 15px 20px;
     }
 }
 
@@ -109,18 +137,18 @@ th {
         padding: 0 0;
     }
 
-    blockquote {
-        padding: 0 0;
-    }
-
     blockquote p {
         font-size: 26px;
-        padding: 0 180px !important;
+        padding: 0 100px !important;
+    }
+
+    blockquote:before {
+        left: 50px;
+        font-size: 150px;
     }
 }
 
 @media screen and (max-width:540px) {
-
     h1,
     h2,
     h3,
@@ -160,5 +188,8 @@ th {
     }
     .nav-link {
         margin-right: 15px;
+    }
+    blockquote:before {
+        visibility: hidden;
     }
 }
