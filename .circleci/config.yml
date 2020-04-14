@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    steps:
+      - run: apk add --update nodejs npm             # install node, npm, and npx
+      - checkout                                     # checkout the repository
+      - run: hugo -v -d ~/hugo/public .              # build the site
+      - run: npx percy snapshot ~/hugo/public # run Percy
