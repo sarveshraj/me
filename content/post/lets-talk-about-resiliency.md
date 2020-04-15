@@ -12,13 +12,13 @@ In my team, we have this concept of Tech Fridays, which are a series of monthly 
 
 But that was before someone in Wuhan touched the wrong animal and we were all mandated to lock ourselves in our homes. With more than usual free time on my plate and a challenge from an annoying friend, I decided to pen down my presentation and hopefully share something new with whoever chooses to read this article (thank you).
 
-### What is this article about?
+## What is this article about?
 
 This article is about the innate quality that pushed Thomas Edison to continue his search for a filament for the light bulb even after more than 1000 failed attempts, or the ability that drove Barcelona to defeat PSG 6–1 and clinch victory despite being thrashed 4–0 in the first leg.
 
 Only I am not going to talk about great scientists or football teams, but software. Particularly how you can build resilient software with the help of Hystrix, a latency and fault tolerance library created by Netflix, designed to enable resilience in complex distributed systems that can never be 100% failure-free. I will also explain the concepts of circuit breakers and fallbacks which form the crux of Hystrix with as little code as possible.
 
-### Prerequisites
+## Prerequisites
 
 You would need to know some basic concepts of operating systems and computer software to understand this article properly.
 
@@ -33,28 +33,28 @@ Asynchronous requests: Contrary to a synchronous request, an asynchronous reques
 
 All set? Let’s talk about resiliency.
 
-### What is Resiliency and why is it important?
+## What is Resiliency and why is it important?
 
-***Resiliency*** , as the name suggests, is the ability of the service to return to its original form. It also means the ability to elastically cope with failures, thereby not impacting the end-user drastically.
+**_Resiliency_** , as the name suggests, is the ability of the service to return to its original form. It also means the ability to elastically cope with failures, thereby not impacting the end-user drastically.
 
-Although depending upon the context, the actual meaning varies, but, in general, a ***Resilient System*** is expected to have the following features:
+Although depending upon the context, the actual meaning varies, but, in general, a **_Resilient System_** is expected to have the following features:
 
 * Fails fast and recovers
 * Retries in case of a failure
 * Has fallbacks in case of a failure
 * Has near real-time monitoring of calls to external services
 
-### What is Hystrix?
+## What is Hystrix?
 
 [Hystrix](https://github.com/Netflix/Hystrix) is a Java library built by Netflix for adding resiliency to distributed systems. It offers an implementation for circuit breaker, fallbacks, retries, timeout and more.
 
 Although in maintenance mode now, the concepts and ideas from Hystrix still hold great value and are being actively utilized in alternate libraries, like the open source [resilience4j](https://github.com/resilience4j/resilience4j).
 
-### What is a circuit breaker?
+## What is a circuit breaker?
 
 When one service synchronously invokes another there is always the possibility that the other service is unavailable or is exhibiting such high latency it is essentially unusable. In such scenarios, previous resources such as threads might be consumed in the caller while waiting for the other service to respond. This might lead to resource exhaustion, which would make the calling service unable to handle other requests. The failure of one service can potentially cascade to other services throughout the application causing a system failure.
 
-#### How to prevent a network or service failure from cascading to other services?
+### How to prevent a network or service failure from cascading to other services?
 
 This is where the idea of a Circuit Breaker comes into play.
 
@@ -68,42 +68,44 @@ In many ways, this circuit breaker is similar to the electrical circuit breakers
 
 We can achieve this self-resetting behavior by introducing a reset timeout interval. After the timeout expires the circuit breaker goes into a half-open state where it allows a limited number of test external calls to pass through. If those requests succeed the circuit breaker resets and resumes normal operation. Otherwise, if there is a failure the timeout period begins again.
 
-### What is a fallback?
+## What is a fallback?
 
 Let’s say we’ve called a remote service and due to some issue, an error is thrown. Showing this error to the user might not be fruitful and will be detrimental to the user experience. For such cases, a fallback response is used. They can be used to suppress exceptions or failed executions and provide a default result which the user sees instead of the error.
 
 **Fun fact:** In case of a failure in the service that gets recommendations, Netflix uses such a fallback mechanism to provide the default list of recommendations (movies/shows to watch) instead of a list catered to your interests and history.
 
+<!-- ___ -->
 **.  .  .**
 
 That’s it for the theory, now let’s write some code. Some familiarity with Java will help for the following section.
 
-### Hystrix Constructs
+## Hystrix Constructs
 
-#### HystrixCommand
+### HystrixCommand
 Used to wrap code that will execute potentially risky functionality (typically meaning HTTP calls to external services) with fault and latency tolerance, circuit breaker and more.
 
 It provides methods for executing the underlying routines synchronously, asynchronously or in a non-blocking fashion.
 
 Here we configure `HystrixCommand` to call a Failure Generator service.
 
-```Java
+```java
 public class FailureGeneratorCommand extends HystrixCommand<String> {
     // Configuring a Jersey Client to connect to the Failure Generator Service
     private final String URI = "https://failuregenerator.com/";
     Client client = ClientBuilder.newClient();
     WebTarget webTarget = client.target(URI);
+
     public FailureGeneratorCommand() {
         super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"));
     }
+
     @Override
     protected String run() {
         // Underlying external network call
         return webTarget.request()
-                        .accept(MediaType.APPLICATION_JSON)
-                        .get(String.class);
+                .accept(MediaType.APPLICATION_JSON)
+                .get(String.class);
     }
-}
 ```
 
 We can call the Failure Generator service synchronously…
@@ -115,22 +117,22 @@ String response = new FailureGeneratorCommand().execute();
 …or asynchronously
 
 ```Java
-Future<String> futureResponse = new FailureGeneratorCommand()
-                                    .queue();
+Future<String> futureResponse = new FailureGeneratorCommand().queue();
+
 String response = futureResponse.get();
 ```
 
-#### HystrixCommandProperties
+### HystrixCommandProperties
 
 `HystrixCommandProperties` allows for setting various configuration options to an instance of `HystrixCommand`.
 
 ```Java
 public FailureGeneratorCommand() {
         super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
-            .andCommandPropertiesDefaults(HystrixCommandProperties
-            .Setter()
-            .withExecutionTimeoutInMilliseconds(500)));                              
-}
+                .andCommandPropertiesDefaults(HystrixCommandProperties
+                        .Setter()
+                        .withExecutionTimeoutInMilliseconds(500)));
+    }
 ```
 
 Some of the commonly used properties are:
@@ -139,7 +141,7 @@ Some of the commonly used properties are:
 * Options for setting the fallback configuration (`fallbackEnabled`)
 * Options to be used by Hystrix when executing the command (`circuitBreakerEnabled`)
 
-### Demonstrating the usage of a circuit breaker
+## Demonstrating the usage of a circuit breaker
 
 The Failure Generator endpoint is configured such that it would return a success message for the first 5 requests. For the next 5 requests, this endpoint would throw an exception. Then the next 5 requests would return a success message.
 
@@ -174,7 +176,7 @@ public class FailureGeneratorCommand extends HystrixCommand<String> {
 
 As we have set the error threshold percentage (`circuitBreakerErrorThresholdPercentage`) to 25, the five requests which fail will cause the circuit breaker to open. At this point, even if we send 50 requests Hystrix will throw an exception. After the trailing window of 2 seconds (`circuitBreakerSleepWindowInMilliseconds`) has passed, Hystrix will allow one request to pass and if this request succeeds, then the response will be returned.
 
-### Demonstrating the usage of fallbacks
+## Demonstrating the usage of fallbacks
 
 This time we will configure our Failure Generator endpoint to always throw an exception.
 
@@ -186,19 +188,21 @@ public class FailureGeneratorCommand extends HystrixCommand<String> {
     private final String URI = "https://failuregenerator.com/";
     Client client = ClientBuilder.newClient();
     WebTarget webTarget = client.target(URI);
+
     public FailureGeneratorCommand() {
         super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
-            .andCommandPropertiesDefaults(HystrixCommandProperties
-                                         .Setter()
-                          .withExecutionTimeoutInMilliseconds(10000)
-                          .withFallbackEnabled(true));
+                .andCommandPropertiesDefaults(HystrixCommandProperties
+                        .Setter()
+                        .withExecutionTimeoutInMilliseconds(10000)
+                        .withFallbackEnabled(true));
     }
+
     @Override
     protected String run() {
         // Underlying external network call
         return webTarget.request()
-                        .accept(MediaType.APPLICATION_JSON)
-                        .get(String.class);
+                .accept(MediaType.APPLICATION_JSON)
+                .get(String.class);
     }
 
     // this method is executed whenever run() throws an error
@@ -217,7 +221,7 @@ Alright. This concludes the article. Hopefully, you enjoyed reading this and lea
 
 Until next time. Stay indoors. Stay safe.
 
-### References
+## References
 1. [https://github.com/Netflix/Hystrix/wiki/How-it-Works](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
 2. [https://github.com/Netflix/Hystrix/wiki/How-To-Use](https://github.com/Netflix/Hystrix/wiki/How-To-Use)
 3. [https://github.com/Netflix/Hystrix/wiki/Configuration](https://github.com/Netflix/Hystrix/wiki/Configuration)
