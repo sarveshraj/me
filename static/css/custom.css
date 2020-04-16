@@ -76,6 +76,28 @@ blockquote p {
     text-align: center;
 }
 
+hr {
+    letter-spacing: 0.6em;
+    text-align: center;
+    font-weight: 300;
+    position: relative;
+}
+
+hr:before {
+    position: absolute;
+    font-size: 50px;
+    content: "...";
+    top: -40px;
+}
+
+code:not([class]) { 
+    padding: .2em .4em;
+    margin: 0;
+    /* font-size: 85%; */
+    background-color: rgba(27,31,35,.05);
+    border-radius: 3px;
+}
+
 @media screen and (max-width:1070px) {
     h1,
     h2,
