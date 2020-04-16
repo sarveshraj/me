@@ -35,9 +35,9 @@ All set? Let’s talk about resiliency.
 
 ## What is Resiliency and why is it important?
 
-**_Resiliency_** , as the name suggests, is the ability of the service to return to its original form. It also means the ability to elastically cope with failures, thereby not impacting the end-user drastically.
+Resiliency, as the name suggests, is the ability of the service to return to its original form. It also means the ability to elastically cope with failures, thereby not impacting the end-user drastically.
 
-Although depending upon the context, the actual meaning varies, but, in general, a **_Resilient System_** is expected to have the following features:
+Although depending upon the context, the actual meaning varies, but, in general, a **Resilient System** is expected to have the following features:
 
 * Fails fast and recovers
 * Retries in case of a failure
@@ -74,8 +74,7 @@ Let’s say we’ve called a remote service and due to some issue, an error is t
 
 **Fun fact:** In case of a failure in the service that gets recommendations, Netflix uses such a fallback mechanism to provide the default list of recommendations (movies/shows to watch) instead of a list catered to your interests and history.
 
-<!-- ___ -->
-**.  .  .**
+___
 
 That’s it for the theory, now let’s write some code. Some familiarity with Java will help for the following section.
 
@@ -103,22 +102,22 @@ public class FailureGeneratorCommand extends HystrixCommand<String> {
     protected String run() {
         // Underlying external network call
         return webTarget.request()
-                .accept(MediaType.APPLICATION_JSON)
-                .get(String.class);
+                        .accept(MediaType.APPLICATION_JSON)
+                        .get(String.class);
     }
+}
 ```
 
 We can call the Failure Generator service synchronously…
 
-```Java
+```java
 String response = new FailureGeneratorCommand().execute();
 ```
 
 …or asynchronously
 
-```Java
+```java
 Future<String> futureResponse = new FailureGeneratorCommand().queue();
-
 String response = futureResponse.get();
 ```
 
@@ -126,13 +125,13 @@ String response = futureResponse.get();
 
 `HystrixCommandProperties` allows for setting various configuration options to an instance of `HystrixCommand`.
 
-```Java
+```java
 public FailureGeneratorCommand() {
         super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
                 .andCommandPropertiesDefaults(HystrixCommandProperties
-                        .Setter()
-                        .withExecutionTimeoutInMilliseconds(500)));
-    }
+                                                .Setter()
+                                                .withExecutionTimeoutInMilliseconds(500)));
+}
 ```
 
 Some of the commonly used properties are:
@@ -147,21 +146,22 @@ The Failure Generator endpoint is configured such that it would return a success
 
 Let’s now configure our `HystrixCommand` to use a circuit breaker.
 
-```Java
+```java
 public class FailureGeneratorCommand extends HystrixCommand<String> {
     // Configuring a Jersey Client to connect to the Failure Generator Service
     private final String URI = "https://failuregenerator.com/";
     Client client = ClientBuilder.newClient();
     WebTarget webTarget = client.target(URI);
+
     public FailureGeneratorCommand() {
         super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
-            .andCommandPropertiesDefaults(HystrixCommandProperties
-                                         .Setter()
-                .withExecutionTimeoutInMilliseconds(10000)                                  
-                .withCircuitBreakerEnabled(true)
-                .withCircuitBreakerRequestVolumeThreshold(1)
-                .withCircuitBreakerErrorThresholdPercentage(25)
-                .withCircuitBreakerSleepWindowInMilliseconds(5000));
+                .andCommandPropertiesDefaults(HystrixCommandProperties
+                                                .Setter()
+                                                .withExecutionTimeoutInMilliseconds(10000)                                  
+                                                .withCircuitBreakerEnabled(true)
+                                                .withCircuitBreakerRequestVolumeThreshold(1)
+                                                .withCircuitBreakerErrorThresholdPercentage(25)
+                                                .withCircuitBreakerSleepWindowInMilliseconds(5000));
     }
 
     @Override
@@ -182,7 +182,7 @@ This time we will configure our Failure Generator endpoint to always throw an ex
 
 Let’s now configure our `HystrixCommand` instance to respond with a fallback when the external call fails.
 
-```Java
+```java
 public class FailureGeneratorCommand extends HystrixCommand<String> {
     // Configuring a Jersey Client to connect to the Failure Generator Service
     private final String URI = "https://failuregenerator.com/";
@@ -192,17 +192,17 @@ public class FailureGeneratorCommand extends HystrixCommand<String> {
     public FailureGeneratorCommand() {
         super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
                 .andCommandPropertiesDefaults(HystrixCommandProperties
-                        .Setter()
-                        .withExecutionTimeoutInMilliseconds(10000)
-                        .withFallbackEnabled(true));
+                                                .Setter()
+                                                .withExecutionTimeoutInMilliseconds(10000)
+                                                .withFallbackEnabled(true));
     }
 
     @Override
     protected String run() {
         // Underlying external network call
         return webTarget.request()
-                .accept(MediaType.APPLICATION_JSON)
-                .get(String.class);
+                        .accept(MediaType.APPLICATION_JSON)
+                        .get(String.class);
     }
 
     // this method is executed whenever run() throws an error
@@ -215,7 +215,7 @@ public class FailureGeneratorCommand extends HystrixCommand<String> {
 
 This command’s `run()` method will fail on every execution. However, the caller will always receive the value returned by the command’s getFallback() method instead of receiving an exception. The response will always be `This is the fallback message`.
 
-**.  .  .**
+***
 
 Alright. This concludes the article. Hopefully, you enjoyed reading this and learned something new. Please feel free to leave any sort of feedback in the comments below.
 
