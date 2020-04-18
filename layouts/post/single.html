@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<section class="section narrow">
+
+    {{ partial "article/hero.html" . }}
+
+    {{ partial "article/progress" . }}
+
+    <button type="button" name="button" class="tocbutton" onclick="onClick()" id="toctoggle"> Contents </button>
+
+    <article  id="articleContent" class="post-content" style="position:relative;">
+
+        {{ .Content }}
+
+    </article>
+
+    {{ .TableOfContents }}
+
+    {{ partial "article/next.html" . }}
+
+</section>
+
+{{ $script := resources.Get "js/progressBar.js" }}
+ <script src="{{ $script.RelPermalink }}"></script>
+{{ end }}

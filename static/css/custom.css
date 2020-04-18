@@ -90,7 +90,7 @@ hr:before {
     top: -40px;
 }
 
-code:not([class]) { 
+code:not([class]) {
     padding: .2em .4em;
     margin: 0;
     /* font-size: 85%; */
@@ -214,4 +214,76 @@ code:not([class]) {
     blockquote:before {
         visibility: hidden;
     }
+}
+
+
+#TableOfContents {
+    position: fixed;
+    width: 20%;
+    top: 0;
+    bottom: auto;
+    padding-left: 10px;
+    border-left: 1px solid #efefef;
+    margin-left: 65%;
+    border-left-width: 4px;
+    display: none;
+}
+
+#TableOfContents ul{
+  text-align: left;
+  align-self: start;
+  display: block;
+  /* margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px; */
+}
+
+#TableOfContents a {
+    text-decoration: none;
+    display: block;
+    color: #696969;
+    transition: all 50ms ease-in-out;
+}
+
+#TableOfContents a:hover,
+#TableOfContents a:focus {
+    color: #a9a9a9;
+}
+
+.post-content{
+  width: 80%;
+  padding-left: 0px;
+  margin-left: 0px;
+  text-align: left;
+}
+
+.aside-container{
+  width: 20%;
+  margin-left: 0px;
+}
+
+#TableOfContents ul li {
+    font-size: 15px;
+    padding: 0px 0px 0px 0px;
+}
+
+#TableOfContents ul li ul li{
+    font-size: 15px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.tocbutton {
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 60% ;
+  cursor: pointer;
+  z-index: 100;
 }

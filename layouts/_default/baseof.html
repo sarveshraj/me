@@ -12,14 +12,15 @@
         {{ partial "header.html" . }}
 
         {{ block "main" . }}
-        
+
         {{ end }}
-        
+
         {{ partial "footer.html" . }}
 
     </div>
 
     <script src="{{ .Site.BaseURL }}js/prism.js"></script>
+    <script src="{{ .Site.BaseURL }}js/toc.js"></script>
 </body>
 
 </html>
