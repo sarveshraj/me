@@ -93,9 +93,90 @@ hr:before {
 code:not([class]) { 
     padding: .2em .4em;
     margin: 0;
-    /* font-size: 85%; */
-    background-color: rgba(27,31,35,.05);
+    background-color: var(--hover);
     border-radius: 3px;
+}
+
+figcaption p {
+    color: var(--secondary);
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    padding-top: 6px;
+}
+
+figcaption a, figcaption a:visited {
+    color: var(--secondary);
+}
+
+figcaption a:hover {
+    text-decoration: none;
+    color: var(--dark-card);
+}
+
+figcaption a::before {
+    content: "(Credits: ";
+}
+
+figcaption a::after {
+    content: ")";
+}
+
+.img-xs > img,
+.img-sm > img,
+.img-md > img {
+    display: block;
+    margin: 0px auto;
+    position: relative;
+    height: auto;
+    z-index: 0;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.img-xs > img {
+    max-width: 507px;
+}
+
+.img-sm > img {
+    max-width: 680px;
+}
+
+.img-md > img {
+    max-width: 1004px;
+}
+
+.img-lg > img {
+    left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}
+
+.article-hero-image figcaption {
+    background-color:var(--background-color);
+    opacity: 0.95;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    line-height: 30pt;
+    text-align: center;
+
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+.article-hero-image:hover figcaption {
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
 }
 
 @media screen and (max-width:1070px) {
@@ -130,6 +211,10 @@ code:not([class]) {
 
     th {
         padding: 15px 20px;
+    }
+
+    .img-sm img {
+        max-width: 507px;
     }
 }
 
