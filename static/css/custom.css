@@ -179,13 +179,49 @@ figcaption a::after {
     transform: translateY(-100%);
 }
 
+.bar-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+    margin: 10px auto 40px;
+    background: var(--card);
+    -webkit-box-shadow: 0 4px 50px rgba(0,0,0,.05);
+    box-shadow: 0 4px 50px rgba(0,0,0,.05);
+    z-index: 1;
+    width: 100%;
+    max-width: 680px;
+}
+
+.bar-container p {
+    margin: 0;
+    padding-right: 20px;
+    line-height: 2.3;
+    width: unset;
+    text-align: center;
+}
+.bar-container a:hover, .bar-container a:focus {
+    text-decoration: none;
+}
+.bar-container a {
+    position: inherit;
+    left: 0;
+    text-align: center;
+}
+
 @media screen and (max-width:1070px) {
     h1,
     h2,
     h3,
     h4,
     h5,
-    h6 {
+    h6, .img-sm img, .bar-container {
         max-width: 507px;
     }
 
@@ -211,10 +247,6 @@ figcaption a::after {
 
     th {
         padding: 15px 20px;
-    }
-
-    .img-sm img {
-        max-width: 507px;
     }
 }
 
@@ -252,6 +284,22 @@ figcaption a::after {
     blockquote:before {
         left: 50px;
         font-size: 150px;
+    }
+
+    .bar-container p {
+        margin: 0;
+        line-height: 2.3;
+        width: unset;
+    }
+    .bar-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        align-content: center;
+    }
+    .bar-container a {
+        margin: 0 auto 10px;
     }
 }
 
