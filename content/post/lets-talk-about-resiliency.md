@@ -1,7 +1,7 @@
 ---
 title: "Let's talk about resiliency"
 date: 2020-04-10
-draft: true
+draft: false
 hero: "/images/computer-display.jpg"
 caption: 
   text: 
