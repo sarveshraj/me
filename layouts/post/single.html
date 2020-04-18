@@ -7,7 +7,9 @@
     {{ partial "article/progress" . }}
 
     <article  id="articleContent" class="post-content" style="position:relative;">
-        {{ partial "bar/bar" . }}
+        {{ if isset .Page.Params "bar" }}
+            {{ partial "bar/bar" . }}
+        {{ end }}
         {{ .Content }}
     </article>
 
