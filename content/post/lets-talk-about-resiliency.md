@@ -12,6 +12,10 @@ authors:
   - Sarvesh Raj
 ---
 
+
+{{< subscribe email="your@email.com" >}}
+
+
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
 
 But that was before someone in Wuhan touched the wrong animal and we were all mandated to lock ourselves in our homes. With more than usual free time on my plate and a challenge from an annoying friend, I decided to pen down my presentation and hopefully share something new with whoever chooses to read this article (thank you).
