@@ -197,20 +197,22 @@ figcaption a::after {
     z-index: 1;
     width: 100%;
     max-width: 680px;
+    align-items: baseline;
 }
 
-.bar-container p {
+.bar-message {
     margin: 0;
     padding-right: 20px;
-    line-height: 2.3;
     width: unset;
     text-align: center;
 }
+
 .bar-container a:hover, .bar-container a:focus {
     text-decoration: none;
 }
 .bar-container a {
     position: inherit;
+    top: 0;
     left: 0;
     text-align: center;
 }
@@ -294,12 +296,12 @@ figcaption a::after {
         align-content: center;
     }
 
-    .bar-container p {
+    .bar-message {
         margin: 0;
         line-height: 2.3;
         width: unset;
     }
-    
+
     .bar-container a {
         margin: 0 auto 10px;
     }
