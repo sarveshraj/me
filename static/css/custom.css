@@ -286,11 +286,6 @@ figcaption a::after {
         font-size: 150px;
     }
 
-    .bar-container p {
-        margin: 0;
-        line-height: 2.3;
-        width: unset;
-    }
     .bar-container {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -298,6 +293,13 @@ figcaption a::after {
         flex-direction: column;
         align-content: center;
     }
+
+    .bar-container p {
+        margin: 0;
+        line-height: 2.3;
+        width: unset;
+    }
+    
     .bar-container a {
         margin: 0 auto 10px;
     }
