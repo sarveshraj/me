@@ -8,10 +8,13 @@ caption:
   attribution: Markus Spiske from Pexels
   attributionLink: https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels
 excerpt: A short guide on what makes software resilient in the world of microservices.
+bar:
+  message: Wish to read this article on Medium?
+  link: https://medium.com/@sarvesh0803/lets-talk-about-resiliency-37660be5eaf3
+  linktext: Click here
 authors:
   - Sarvesh Raj
 ---
-
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
 
 But that was before someone in Wuhan touched the wrong animal and we were all mandated to lock ourselves in our homes. With more than usual free time on my plate and a challenge from an annoying friend, I decided to pen down my presentation and hopefully share something new with whoever chooses to read this article (thank you).
