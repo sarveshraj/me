@@ -204,17 +204,15 @@ figcaption a::after {
     margin: 0;
     padding-right: 20px;
     width: unset;
-    text-align: center;
 }
 
-.bar-container a:hover, .bar-container a:focus {
+.bar-button:hover, .bar-button:focus {
     text-decoration: none;
 }
-.bar-container a {
+.bar-button {
     position: inherit;
     top: 0;
     left: 0;
-    text-align: center;
 }
 
 @media screen and (max-width:1070px) {
@@ -293,17 +291,15 @@ figcaption a::after {
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
-        align-content: center;
+        align-items: center;
     }
 
     .bar-message {
-        margin: 0;
-        line-height: 2.3;
-        width: unset;
+        margin: 0 auto 15px;
     }
 
-    .bar-container a {
-        margin: 0 auto 10px;
+    .bar-button {
+        margin: 0 auto;
     }
 }
 
