@@ -111,7 +111,7 @@ figcaption a, figcaption a:visited {
 
 figcaption a:hover {
     text-decoration: none;
-    color: var(--dark-card);
+    color: var(--accent);
 }
 
 figcaption a::before {
