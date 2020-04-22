@@ -4,9 +4,10 @@
             <h1 class="article-hero-heading">{{ .Page.Params.Title }}</h1>
             <div class="article-hero-subtitle">
                 <div class="article-meta">
-                    {{ partial "article/authors.html" . }}
-                    {{ .Page.Date.Format "January 2, 2006" }}
-                    • {{ .ReadingTime }} min read
+                    {{ if isset .Page.Params "updated" }}
+                    Updated on {{ dateFormat "January 2, 2006" .Page.Params.updated  }} • 
+                    {{ end }}
+                    Published on {{ .Page.Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
                 </div>
             </div>
         </header>

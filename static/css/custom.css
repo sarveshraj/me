@@ -198,6 +198,7 @@ figcaption a::after {
     width: 100%;
     max-width: 680px;
     align-items: baseline;
+
 }
 
 .bar-message {
@@ -214,6 +215,7 @@ figcaption a::after {
     top: 0;
     left: 0;
 }
+
 
 @media screen and (max-width:1070px) {
     h1,

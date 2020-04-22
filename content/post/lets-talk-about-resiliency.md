@@ -1,6 +1,7 @@
 ---
 title: "Let's talk about resiliency"
 date: 2020-04-10
+updated: 2020-05-12
 draft: false
 hero: "/images/computer-display.jpg"
 caption: 
@@ -12,8 +13,10 @@ bar:
   message: Wish to read this article on Medium?
   link: https://medium.com/@sarvesh0803/lets-talk-about-resiliency-37660be5eaf3
   linktext: Click here
-authors:
-  - Sarvesh Raj
+tags: 
+  - tag
+  - tag2
+years: 2020
 ---
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
 
