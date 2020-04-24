@@ -47,13 +47,7 @@ The blockquote element represents content that is quoted from another source, op
 
 ## Tables
 
-Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
-
-| Name | Age |
-
-    Bob | 27
-
-Alice | 23
+Tables aren't part of the core Markdown spec, but Hugo supports them out-of-the-box.
 
 #### Inline Markdown within tables
 
@@ -82,6 +76,8 @@ html
 #### Code block with Hugo's internal highlight shortcode
 
 {{< highlight html >}} <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Example HTML5 Document</title> </head> <body> <p>Test</p> </body> </html> {{< /highlight >}}
+
+{{< figure src="/images/hero-3.jpg" class="img-lg">}}
 
 ## List Types
 

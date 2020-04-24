@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-<div class="outer-toc">
+<!-- <div class="outer-toc">
   <button type="button" name="button" class="tocbutton" id="toctoggle"> <img src="/images/book.png" alt=""> </button>
   {{.TableOfContents}}
-</div>
+</div> -->
 
 <section class="section narrow">
 
@@ -15,6 +15,14 @@
         {{ if isset .Page.Params "bar" }}
             {{ partial "bar/bar" . }}
         {{ end }}
+        <div id="toc-container">
+            <div id="toc-icon">
+                {{ partial "icons/ui/book.html" . }}
+            </div> 
+            <div id="toc">
+                {{.TableOfContents}}
+            </div>
+        </div>
         {{ .Content }}
     </article>
 
@@ -24,4 +32,5 @@
 
 {{ $script := resources.Get "js/progressBar.js" }}
  <script src="{{ $script.RelPermalink }}"></script>
+ <script src="{{ .Site.BaseURL }}js/toggleIndex.js"></script>
 {{ end }}
