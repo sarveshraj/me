@@ -4,3 +4,8 @@ title = "Sarvesh Raj"
 theme = "novela"
 [taxonomies]
 author = "authors"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 2

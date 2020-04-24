@@ -90,7 +90,7 @@ hr:before {
     top: -40px;
 }
 
-code:not([class]) { 
+code:not([class]) {
     padding: .2em .4em;
     margin: 0;
     background-color: var(--hover);
@@ -347,4 +347,87 @@ figcaption a::after {
     blockquote:before {
         visibility: hidden;
     }
+}
+
+
+#TableOfContents {
+    position: fixed;
+    transition: 0.3s;
+    left: -250px;
+    bottom: auto;
+    padding-left: 10px;
+    background-color: white;
+    width: 250px;
+    display: block;
+}
+
+#TableOfContents ul{
+  text-align: left;
+  align-self: start;
+  display: block;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: outside;
+  list-style-image: none;
+  overflow: auto;
+}
+
+#TableOfContents a {
+    text-decoration: none;
+    display: block;
+    color: #696969;
+    transition: all 50ms ease-in-out;
+}
+
+#TableOfContents a:hover,
+#TableOfContents a:focus {
+    color: #a9a9a9;
+}
+
+#TableOfContents ul li {
+    font-size: 15px;
+    padding: 0px 0px 0px 0px;
+}
+
+.tocbutton {
+  position: sticky;
+  top: 0%;
+  align-self: flex-end;
+  background-color: #e7e7e7;
+  border: 10px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.tocbutton img{
+  width: 35px;
+  height: 30px;
+}
+
+.outer-toc{
+  position:fixed;
+  width: 250px;
+  left: 0px;
+  top:30%;
+  background-image: none;
+  background-attachment:scroll;
+  overflow-y: auto;
+  z-index:100;
+}
+
+.outer-toc:hover #TableOfContents{
+  left: 0px;
+}
+
+.outer-toc:hover .tocbutton{
+  display: none;
+}
+
+html{
+  scroll-behavior: smooth;
 }
