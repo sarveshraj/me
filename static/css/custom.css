@@ -233,12 +233,12 @@ figcaption a::after {
     -ms-flex-direction: column;
     flex-direction: column;
     margin-right: -80px;
-    cursor: pointer;
 }
 
 #toc-icon {
     background-color: var(--background-color);
     border-radius: .5em;
+    cursor: pointer;
 }
 
 .logo-book {
@@ -305,6 +305,7 @@ figcaption a::after {
 #TableOfContents ul {
     overflow: hidden;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 #TableOfContents li {
