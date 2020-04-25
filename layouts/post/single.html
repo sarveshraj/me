@@ -1,25 +1,21 @@
 {{ define "main" }}
 
-<!-- <div class="outer-toc">
-  <button type="button" name="button" class="tocbutton" id="toctoggle"> <img src="/images/book.png" alt=""> </button>
-  {{.TableOfContents}}
-</div> -->
-
 <section class="section narrow">
 
     {{ partial "article/hero.html" . }}
 
     {{ partial "article/progress" . }}
 
-    <article  id="articleContent" class="post-content" style="position:relative;">
+    <article id="articleContent" class="post-content" style="position:relative;">
         {{ if isset .Page.Params "bar" }}
-            {{ partial "bar/bar" . }}
+        {{ partial "bar/bar" . }}
         {{ end }}
         <div id="toc-container">
             <div id="toc-icon">
                 {{ partial "icons/ui/book.html" . }}
-            </div> 
-            <div id="toc">
+            </div>
+            <div id="toc" class="hidden visually-hidden">
+                <div id="triangle"></div>
                 {{.TableOfContents}}
             </div>
         </div>
@@ -31,6 +27,6 @@
 </section>
 
 {{ $script := resources.Get "js/progressBar.js" }}
- <script src="{{ $script.RelPermalink }}"></script>
- <script src="{{ .Site.BaseURL }}js/toggleIndex.js"></script>
+<script src="{{ $script.RelPermalink }}"></script>
+<script src="{{ .Site.BaseURL }}js/toggleIndex.js"></script>
 {{ end }}

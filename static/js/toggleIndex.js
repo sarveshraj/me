@@ -1,13 +1,22 @@
 document.getElementById("toc-icon").addEventListener("click", toggleIndex);
-document.getElementById("toc-icon").addEventListener("onfocusout", toggleIndex);
 
-var indexActive = false;
+let tocElement = document.getElementById("toc");
+let tocIconElement = document.getElementById("toc-icon");
+let tocContainerElement = document.getElementById("toc-container");
 
 function toggleIndex() {
-    if (indexActive) {
-        console.log("bye index");
+
+    if (tocElement.classList.contains('hidden')) {
+        // enable index
+        tocElement.classList.remove('hidden');
+        tocIconElement.classList.add('selected');
+        tocElement.classList.remove('visually-hidden');
     } else {
-        console.log("hi index");
+        // disable index
+        tocElement.classList.add('visually-hidden');
+        tocIconElement.classList.remove('selected');
+        setTimeout(() => {
+            tocElement.classList.add('hidden');
+        }, 300)
     }
-    indexActive = !indexActive;
 }
