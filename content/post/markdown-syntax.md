@@ -5,6 +5,8 @@ hero: "/images/hero-2.jpg"
 excerpt: Sample article showcasing basic Markdown syntax and formatting for HTML elements.
 tags: 
   - tag1
+authors:
+- Sarvesh Raj
 
 years: 2019
 ---

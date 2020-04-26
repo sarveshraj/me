@@ -6,3 +6,8 @@ theme = "novela"
 [taxonomies]
 year = "years"
 tag = "tags"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 2
