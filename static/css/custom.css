@@ -331,6 +331,49 @@ figcaption a::after {
     opacity: 1;
 }
 
+.heading-container {
+    margin: 50px 0;
+}
+
+.subheading-container {
+    margin-bottom: 50px;
+}
+
+.article-hero-subtitle {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.article-meta {
+    margin-bottom: 10px;
+}
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    margin-top: 10px;
+    opacity: 0.6;
+    margin-right: .7rem;
+    padding: 0px .6em;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    -webkit-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.tag:hover, .tag:focus, .tag:visited {
+    text-decoration: none;
+    opacity: 1;
+}
+
 @media screen and (max-width:1350px) {
     #toc-container {
         -webkit-box-orient: horizontal;
@@ -359,6 +402,7 @@ figcaption a::after {
 }
 
 @media screen and (max-width:1070px) {
+
     h1,
     h2,
     h3,
@@ -396,6 +440,7 @@ figcaption a::after {
 }
 
 @media screen and (max-width:737px) {
+
     h1,
     h2,
     h3,
@@ -449,6 +494,7 @@ figcaption a::after {
 }
 
 @media screen and (max-width:540px) {
+
     h1,
     h2,
     h3,
@@ -494,5 +540,32 @@ figcaption a::after {
 
     blockquote:before {
         visibility: hidden;
+    }
+
+    .article-header {
+        margin: 100px auto 70px;
+    }
+
+    .article-coauthors-icon-container {
+        position: relative;
+        top: 0;
+    }
+
+    .article-header {
+        margin: 50px auto 70px;
+    }
+
+    .tag {
+        line-height: 1.8;
+        border: none;
+        padding: 0;
+        margin-top: 0px;
+    }
+    .tag::after {
+        content: ',';
+        margin-left: -2px;
+    }
+    .tag:last-child:after {
+        content: none;
     }
 }

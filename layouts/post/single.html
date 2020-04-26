@@ -10,7 +10,7 @@
         {{ if isset .Page.Params "bar" }}
         {{ partial "bar/bar" . }}
         {{ end }}
-        <div id="toc-container">
+        <aside id="toc-container">
             <div id="toc-icon">
                 {{ partial "icons/ui/book.html" . }}
             </div>
@@ -18,7 +18,7 @@
                 <div id="triangle"></div>
                 {{.TableOfContents}}
             </div>
-        </div>
+        </aside>
         {{ .Content }}
     </article>
 
