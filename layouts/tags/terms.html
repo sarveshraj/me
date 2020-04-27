@@ -4,7 +4,17 @@
         <h1 class="hero-heading" style="max-width: max-content;">{{ .Title }}</h1>
     </div>
 </Section>
-<Section class="tags" id="list-of-tags">
-    
+<Section class="section" id="list-of-tags">
+    {{ range .Data.Terms.ByCount }}
+    <div class="tag">
+        <div class="tag-name">
+            <h3>{{ .Page.Title }}</h3>
+        </div>
+        <div class="tag-posts">
+            {{ $pageCount := len .Pages }}
+            <a href="{{ .Page.Permalink }}"><div>{{ $pageCount }} POST{{ if ne $pageCount 1 }}S{{ end }}</div></a>
+        </div>
+    </div>
+    {{ end }}
 </Section>
 {{ end }}
