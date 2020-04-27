@@ -2,7 +2,10 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Sarvesh Raj"
 theme = "novela"
+
 [taxonomies]
+year = "years"
+tag = "tags"
 author = "authors"
 
 [markup]

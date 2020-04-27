@@ -5,8 +5,17 @@
             <div class="article-hero-subtitle">
                 <div class="article-meta">
                     {{ partial "article/authors.html" . }}
-                    {{ .Page.Date.Format "January 2, 2006" }}
-                    • {{ .ReadingTime }} min read
+                    {{ if isset .Page.Params "updated" }}
+                    Updated on {{ dateFormat "January 2, 2006" .Page.Params.updated  }} • Published on
+                    {{ end }}
+                    {{ .Page.Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
+                </div>
+                <div class="article-tags">
+                    {{ range .Page.Params.tags }}
+                    <a href="/tags/{{ . | urlize}}" class="tag">
+                        #{{ . }}
+                    </a>
+                    {{ end }}
                 </div>
             </div>
         </header>

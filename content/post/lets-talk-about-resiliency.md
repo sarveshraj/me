@@ -1,6 +1,7 @@
 ---
 title: Let's talk about resiliency
 date: 2020-04-10
+draft: false
 hero: "/images/computer-display.jpg"
 caption:
   text: 
@@ -11,8 +12,15 @@ bar:
   message: Wish to read this article on Medium?
   link: https://medium.com/@sarvesh0803/lets-talk-about-resiliency-37660be5eaf3
   linktext: Click here
+tags: 
+  - Resiliency
+  - Software
+  - API
+  - Hystrix
+  - Fault Tolerance
+years: 2020
 authors:
-- Sarvesh Raj
+  - Sarvesh Raj
 
 ---
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
@@ -68,7 +76,7 @@ The idea is to fail fast to release pressure from the underlying system when we 
 
 The basic concept of a circuit breaker is simple, we wrap the part of our code which makes external calls in a circuit breaker object, which monitors for failures. The caller services are expected to invoke the external remote service via this proxy object. When the number of consecutive failures to the remote service crosses a threshold, the circuit breaker will open the circuit and all further calls to the circuit will prematurely fail without the underlying external call being made. This prevents precious resources from being exhausted and allows the external remote service to reach a healthy state.
 
-{{< figure src="/images/circuit-breaker.jpg" caption="Flow diagram of a circuit breaker" attr="Martin Fowler" attrlink="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" class="img-xs" >}}
+{{< figure src="/images/circuit-breaker.jpg" caption="Flow diagram of a circuit breaker" attr="Martin Fowler" attrlink="https://martinfowler.com/bliki/CircuitBreaker.html" class="img-xs" >}}
 
 In many ways, this circuit breaker is similar to the electrical circuit breakers we find in every household. Where it differs though is in its ability to reset itself automatically without the need for manual external intervention.
 
