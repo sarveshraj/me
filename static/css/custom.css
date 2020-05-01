@@ -666,4 +666,8 @@ figcaption a::after {
     .article-tags .tag:last-child:after {
         content: none;
     }
+
+    .tag-posts a div {
+        font-size: 0.6em;
+    }
 }
