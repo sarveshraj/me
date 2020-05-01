@@ -1,0 +1,5 @@
+{{ define "main" }}
+    {{ .Scratch.Set "heading" "Articles from year" }}   
+    {{ partial "taxonomies/hero.html" . }}
+    {{ partial "taxonomies/list.html" . }}
+{{end}}

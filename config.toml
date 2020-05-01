@@ -6,7 +6,6 @@ theme = "novela"
 [taxonomies]
 year = "years"
 tag = "tags"
-author = "authors"
 
 [markup]
   [markup.tableOfContents]

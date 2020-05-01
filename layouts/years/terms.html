@@ -1,0 +1,41 @@
+{{ define "main" }}
+<Section class="section" relative id="Taxonomies__Hero">
+    <div class="heading-container">
+        <h1 class="hero-heading" style="max-width: max-content;">{{ .Title }}</h1>
+        <h3 class="hero-subheading">Here is a timeline of this website.</h3>
+    </div>
+</Section>
+<Section class="section" id="timeline-wrapper">
+    <div class="timeline">
+        {{ $descriptions := .Site.Data.years }}
+        {{ range .Data.Terms.Alphabetical.Reverse }}
+        <div class="timeline-entry">
+            <a href="{{ .Page.Permalink }}" class="timeline-title">
+                <div class="year">
+                    {{ .Page.Title }}
+                </div>
+                <div class="posts">
+                    <span>
+                        {{ $pageCount := len .Pages }}
+                        {{ $pageCount }} POST{{ if ne $pageCount 1 }}S{{ end }}
+                    </span>
+                </div>
+            </a>
+            <div class="timeline-body primary-color">
+                {{ index $descriptions .Page.Title }}
+            </div>
+        </div>
+        {{ end }}
+        <div class="timeline-entry">
+            <div href="" class="timeline-title">
+                <div class="year">
+                    2019
+                </div>
+            </div>
+            <div class="timeline-body primary-color">
+
+            </div>
+        </div>
+    </div>
+</Section>
+{{ end }}

@@ -1,10 +1,11 @@
-<Section class="section" relative id="Articles__Hero">
+<Section class="section" relative id="Taxonomies__Hero">
     <div class="heading-container">
         <h1 class="hero-heading" style="max-width: max-content;">{{ .Scratch.Get "heading" }}: {{ .Title }}</h1>
-        <h3 class="hero-subheading"></h3>
     </div>
     <div class="subheading-container">
-        {{ partial "bio.html" . }}
+        <div class="links">
+            <a href="/{{.Data.Plural}}">Back to all {{.Data.Plural}}</a>
+        </div>
         <div class="grid-controls-container">
             <button id="btnGrid" class="grid-button">
                 {{ partial "icons/ui/tiles.html" . }}
