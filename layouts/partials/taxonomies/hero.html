@@ -4,7 +4,7 @@
     </div>
     <div class="subheading-container">
         <div class="links">
-            <a href="/{{.Data.Plural}}">Back to all {{.Data.Plural}}</a>
+            <a href="/{{.Data.Plural}}">Back to {{ cond (eq (.Data.Plural) "years") "timeline" .Data.Plural}}</a>
         </div>
         <div class="grid-controls-container">
             <button id="btnGrid" class="grid-button">
