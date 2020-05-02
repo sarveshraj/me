@@ -647,10 +647,16 @@ figcaption a::after {
 
 .strip .title .plus::before {
     content: "+";
-    border: 1px solid;
-    border-radius: 50%;
     letter-spacing: 0;
     margin-bottom: 0.6em;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    -webkit-transition: border-color .3s ease-in-out;
+    transition: border-color .3s ease-in-out;
+}
+
+.strip .title:hover .plus::before {
+    border-color: inherit;
 }
 
 .strip .content {
@@ -693,9 +699,6 @@ figcaption a::after {
 
 .strip:nth-child(2).active {
     grid-column: 2 / span 9;
-    flex-direction: row-reverse;
-    padding-left: 0;
-    padding-right: calc(5vw - 11.2px);
 }
 
 @supports (display: grid) {
@@ -903,6 +906,10 @@ figcaption a::after {
         font-weight: normal;
         line-height: 0em;
         margin-left: 10px;
+    }
+
+    .strip .title .plus::before {
+        border-color: inherit;
     }
 }
 
