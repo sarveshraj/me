@@ -19,9 +19,6 @@ tags:
   - Hystrix
   - Fault Tolerance
 years: 2020
-authors:
-  - Sarvesh Raj
-
 ---
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
 

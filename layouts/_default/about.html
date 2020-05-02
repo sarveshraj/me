@@ -1,0 +1,27 @@
+{{ define "main" }}
+<Section class="section" relative id="About__Hero">
+    <div class="heading-container">
+        <h1 class="hero-heading" style="max-width: max-content;">{{ .Title }}</h1>
+        <h4 class="hero-subheading">{{ .Page.Params.subheading | safeHTML }}</h4>
+    </div>
+</Section>
+<Section class="strips">
+    <div class="strip active">
+        <div class="title">My <span class="plus"></span> Journey</div>
+        <div class="content">
+            {{ partial "subscription/subscription.html" . }}
+            {{ partial "subscription/subscription.html" . }}
+            {{ partial "subscription/subscription.html" . }}
+        </div>
+    </div>
+    <div class="strip">
+        <div class="title">My <span class="plus"></span> Résumé</div>
+        <div class="content">
+            
+        </div>
+    </div>
+    {{/*  TLDR, long story, online resume  */}}
+
+</Section>
+<script src="{{ .Site.BaseURL }}js/toggleStrips.js"></script>
+{{ end }}

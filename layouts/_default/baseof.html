@@ -15,7 +15,10 @@
         
         {{ end }}
         
-        {{ partial "footer.html" . }}
+        {{ if eq .Page.Params.hideFooter true }}
+        {{ else }}
+            {{ partial "footer.html" . }}
+        {{ end }}
 
     </div>
 

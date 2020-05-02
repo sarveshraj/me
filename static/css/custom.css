@@ -10,6 +10,11 @@ th {
     padding: 15px 30px;
 }
 
+.social-icon-container {
+    -webkit-box-align: center;
+    align-items: center;
+}
+
 .code-toolbar>.toolbar>.toolbar-item>button {
     font-size: 13px;
     padding: 8px 10px;
@@ -594,6 +599,105 @@ figcaption a::after {
     top: 10px;
 }
 
+/* About page */
+#About__Hero h4 {
+    max-width: unset;
+}
+
+#About__Hero~.section.narrow>.footer-hr {
+    margin-top: 0;
+}
+
+#About__Hero~.footer-gradient {
+    background: unset;
+
+}
+
+.strips {
+    -webkit-box-align: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    width: 100vw;
+}
+
+.strip {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow: scroll;
+    height: 100vh;
+}
+
+.strip .title {
+    -webkit-writing-mode: vertical-lr;
+    -ms-writing-mode: tb-lr;
+    writing-mode: vertical-lr;
+    -webkit-text-orientation: upright;
+    text-orientation: upright;
+    text-transform: uppercase;
+    letter-spacing: 0.6em;
+    cursor: pointer;
+    align-self: center;
+}
+
+.strip .title .plus::before {
+    content: "+";
+    border: 1px solid;
+    border-radius: 50%;
+    letter-spacing: 0;
+    margin-bottom: 0.6em;
+}
+
+.strip .content {
+    opacity: 0;
+    width: 0;
+    overflow: scroll;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
+
+.strip.active {
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    padding-left: calc(5vw - 11.2px);
+}
+
+.strip.active .content {
+    opacity: 1;
+    padding: 4em;
+    width: 100%;
+}
+
+.strip.active .title .plus::before {
+    content: "-";
+}
+
+.strip:nth-child(1) {
+    background-color: var(--articleText);
+    color: var(--background-color);
+}
+
+.strip:nth-child(1).active {
+    grid-column: 1 / span 9;
+}
+
+.strip:nth-child(2) {
+    background-color: var(--background-color);
+    color: var(--primary);
+}
+
+.strip:nth-child(2).active {
+    grid-column: 2 / span 9;
+    flex-direction: row-reverse;
+    padding-left: 0;
+    padding-right: calc(5vw - 11.2px);
+}
+
 @supports (display: grid) {
     @media (min-width: 768px) {
         .timeline-entry {
@@ -865,7 +969,7 @@ figcaption a::after {
     }
 
     .article-tags .tag {
-        line-height: 1.8;
+        line-height: 1.5;
         border: none;
         padding: 0;
         margin-top: 0px;
