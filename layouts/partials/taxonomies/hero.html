@@ -1,12 +1,10 @@
-<Section class="section" relative id="Articles__Hero">
-    <div class="heading-container" style="max-width: max-content;">
-        <h1 class="hero-heading">{{ .Page.Params.hero.heading }}</h1>
-        <h3 class="hero-subheading">{{ .Page.Params.hero.subheading }}</h3>
+<Section class="section" relative id="Taxonomies__Hero">
+    <div class="heading-container">
+        <h1 class="hero-heading" style="max-width: max-content;">{{ .Scratch.Get "heading" }}: {{ .Title }}</h1>
     </div>
     <div class="subheading-container">
         <div class="links">
-            <a href="/tags">View all tags</a>
-            {{/*  <span class="primary-color"> | </span><a href="/years">View timeline</a>  */}}
+            <a href="/{{.Data.Plural}}">Back to {{ cond (eq (.Data.Plural) "years") "timeline" .Data.Plural}}</a>
         </div>
         <div class="grid-controls-container">
             <button id="btnGrid" class="grid-button">

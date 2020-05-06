@@ -3,7 +3,7 @@ title: "Let's talk about resiliency"
 date: 2020-04-10
 draft: false
 hero: "/images/computer-display.jpg"
-caption: 
+caption:
   text: 
   attribution: Markus Spiske from Pexels
   attributionLink: https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels
@@ -12,8 +12,16 @@ bar:
   message: Wish to read this article on Medium?
   link: https://medium.com/@sarvesh0803/lets-talk-about-resiliency-37660be5eaf3
   linktext: Click here
+tags: 
+  - Resiliency
+  - Software
+  - API
+  - Hystrix
+  - Fault Tolerance
+years: 2020
 authors:
   - Sarvesh Raj
+
 ---
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
 
@@ -33,8 +41,7 @@ You would need to know some basic concepts of operating systems and computer sof
 
 **Semaphores:** A semaphore is essentially a counter which controls access to a shared resource. What a semaphore counts is the number of permits available to the resource. If the counter is greater than zero, then access is allowed. If it is zero, then access is denied. Thus if a thread wants to access a resource, it must first acquire a permit from the semaphore.
 
-**Synchronous requests:** A synchronous HTTP request is one where the caller thread is blocked until the call to the external service completes. In a synchronous request, the HTTP connection is open until the response is received.
-Asynchronous requests: Contrary to a synchronous request, an asynchronous request calls the server and continues with the next instruction. In this type of request, the main thread hands the waiting-for-response function to a worker thread and continues with the execution of the next line of code.
+**Synchronous requests:** A synchronous HTTP request is one where the caller thread is blocked until the call to the external service completes. In a synchronous request, the HTTP connection is open until the response is received. Asynchronous requests: Contrary to a synchronous request, an asynchronous request calls the server and continues with the next instruction. In this type of request, the main thread hands the waiting-for-response function to a worker thread and continues with the execution of the next line of code.
 
 **Latency:** Latency is equivalent to delay. In the context of HTTP requests and microservices, latency is the time it takes to get a response back from any external service.
 
@@ -69,7 +76,7 @@ The idea is to fail fast to release pressure from the underlying system when we 
 
 The basic concept of a circuit breaker is simple, we wrap the part of our code which makes external calls in a circuit breaker object, which monitors for failures. The caller services are expected to invoke the external remote service via this proxy object. When the number of consecutive failures to the remote service crosses a threshold, the circuit breaker will open the circuit and all further calls to the circuit will prematurely fail without the underlying external call being made. This prevents precious resources from being exhausted and allows the external remote service to reach a healthy state.
 
-{{< figure src="/images/circuit-breaker.jpg" caption="Flow diagram of a circuit breaker" attr="Martin Fowler" attrlink="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" class="img-xs" >}}
+{{< figure src="/images/circuit-breaker.jpg" caption="Flow diagram of a circuit breaker" attr="Martin Fowler" attrlink="https://martinfowler.com/bliki/CircuitBreaker.html" class="img-xs" >}}
 
 In many ways, this circuit breaker is similar to the electrical circuit breakers we find in every household. Where it differs though is in its ability to reset itself automatically without the need for manual external intervention.
 
@@ -81,13 +88,14 @@ Let’s say we’ve called a remote service and due to some issue, an error is t
 
 **Fun fact:** In case of a failure in the service that gets recommendations, Netflix uses such a fallback mechanism to provide the default list of recommendations (movies/shows to watch) instead of a list catered to your interests and history.
 
-___
+***
 
 That’s it for the theory, now let’s write some code. Some familiarity with Java will help for the following section.
 
 ## Hystrix Constructs
 
 ### HystrixCommand
+
 Used to wrap code that will execute potentially risky functionality (typically meaning HTTP calls to external services) with fault and latency tolerance, circuit breaker and more.
 
 It provides methods for executing the underlying routines synchronously, asynchronously or in a non-blocking fashion.
@@ -229,6 +237,7 @@ Alright. This concludes the article. Hopefully, you enjoyed reading this and lea
 Until next time. Stay indoors. Stay safe.
 
 ## References
+
 1. [https://github.com/Netflix/Hystrix/wiki/How-it-Works](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
 2. [https://github.com/Netflix/Hystrix/wiki/How-To-Use](https://github.com/Netflix/Hystrix/wiki/How-To-Use)
 3. [https://github.com/Netflix/Hystrix/wiki/Configuration](https://github.com/Netflix/Hystrix/wiki/Configuration)

@@ -1,15 +1,24 @@
 {{ define "main" }}
 
-<section class="section narrow">
+<section class="section narrow post">
 
     {{ partial "article/hero.html" . }}
 
     {{ partial "article/progress" . }}
 
-    <article  id="articleContent" class="post-content" style="position:relative;">
+    <article id="articleContent" class="post-content" style="position:relative;">
         {{ if isset .Page.Params "bar" }}
-            {{ partial "bar/bar" . }}
+        {{ partial "bar/bar" . }}
         {{ end }}
+        <aside id="toc-container">
+            <div id="toc-icon">
+                {{ partial "icons/ui/book.html" . }}
+            </div>
+            <div id="toc" class="hidden visually-hidden">
+                <div id="triangle"></div>
+                {{.TableOfContents}}
+            </div>
+        </aside>
         {{ .Content }}
     </article>
 
@@ -18,5 +27,6 @@
 </section>
 
 {{ $script := resources.Get "js/progressBar.js" }}
- <script src="{{ $script.RelPermalink }}"></script>
+<script src="{{ $script.RelPermalink }}"></script>
+<script src="{{ .Site.BaseURL }}js/toggleIndex.js"></script>
 {{ end }}
