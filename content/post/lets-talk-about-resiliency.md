@@ -1,5 +1,5 @@
 ---
-title: Let's talk about resiliency
+title: "Let's talk about resiliency"
 date: 2020-04-10
 draft: false
 hero: "/images/computer-display.jpg"
