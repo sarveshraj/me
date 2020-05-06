@@ -1,9 +1,9 @@
 ---
-title: "Let's talk about resiliency"
+title: Let's talk about resiliency
 date: 2020-04-10
 draft: false
 hero: "/images/computer-display.jpg"
-caption: 
+caption:
   text: 
   attribution: Markus Spiske from Pexels
   attributionLink: https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels
