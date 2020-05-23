@@ -600,6 +600,14 @@ figcaption a::after {
 }
 
 /* About page */
+#tippy-1 .tippy-content {
+    padding: 8px 8px;
+}
+
+#About {
+    scroll-snap-type: y mandatory;
+}
+
 #About__Hero h4 {
     max-width: unset;
 }
@@ -622,6 +630,7 @@ figcaption a::after {
     justify-content: center;
     overflow: scroll;
     width: 100vw;
+    scroll-snap-align: start;
 }
 
 .strip {
@@ -650,7 +659,7 @@ figcaption a::after {
     letter-spacing: 0;
     margin-bottom: 0.6em;
     border: 1px solid transparent;
-    border-radius: 50%;
+    border-radius: 100%;
     -webkit-transition: border-color .3s ease-in-out;
     transition: border-color .3s ease-in-out;
 }
@@ -684,8 +693,8 @@ figcaption a::after {
 }
 
 .strip:nth-child(1) {
-    background-color: var(--articleText);
-    color: var(--background-color);
+    background-color: var(--background-color);
+    color: var(--primary);
 }
 
 .strip:nth-child(1).active {
@@ -693,12 +702,37 @@ figcaption a::after {
 }
 
 .strip:nth-child(2) {
-    background-color: var(--background-color);
-    color: var(--primary);
+    background-color: var(--articleText);
+    color: var(--background-color);
 }
 
 .strip:nth-child(2).active {
     grid-column: 2 / span 9;
+}
+
+#tldr-section p {
+    padding: 0 2rem;
+}
+
+#tldr-section h3 {
+    padding: 0 2rem;
+}
+
+.tldr-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 64px 0 55px;
+    margin: 10px auto 100px;
+    background: var(--card);
+    -webkit-box-shadow: 0 4px 50px rgba(0, 0, 0, .05);
+    box-shadow: 0 4px 50px rgba(0, 0, 0, .05);
+    z-index: 1;
 }
 
 @supports (display: grid) {
@@ -908,8 +942,24 @@ figcaption a::after {
         margin-left: 10px;
     }
 
+    .strip.active .content {
+        padding: 1em;
+    }
+
     .strip .title .plus::before {
         border-color: inherit;
+    }
+
+    .tldr-container {
+        padding: 20px 0;
+    }
+
+    .tldr-content {
+        text-align: center;
+    }
+
+    .tldr-content h3 {
+        padding: 0 50px;
     }
 }
 
@@ -1001,5 +1051,9 @@ figcaption a::after {
         -webkit-box-pack: center;
         justify-content: center;
         margin-bottom: 30px;
+    }
+
+    .strip.active .content {
+        padding: 0.5em;
     }
 }

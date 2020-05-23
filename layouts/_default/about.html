@@ -1,29 +1,47 @@
 {{ define "main" }}
-<Section class="section" relative id="About__Hero">
-    <div class="heading-container">
-        <h1 class="hero-heading" style="max-width: max-content;">{{ .Title }}</h1>
-        <h4 class="hero-subheading">{{ .Page.Params.subheading | safeHTML }}</h4>
-    </div>
-</Section>
-<Section class="strips">
-    <div class="strip active">
-        <div class="title">My <span class="plus"></span> Journey</div>
-        <div class="content">
-            {{ partial "subscription/subscription.html" . }}
-            {{ partial "subscription/subscription.html" . }}
-            {{ partial "subscription/subscription.html" . }}
+<div id="About">
+    <Section class="section" relative id="About__Hero">
+        <div class="heading-container">
+            <h1 class="hero-heading" style="max-width: max-content;">{{ .Title }}</h1>
+            <h4 class="hero-subheading">{{ .Page.Params.subheading | safeHTML }}</h4>
         </div>
-    </div>
-    <div class="strip">
-        <div class="title">My <span class="plus"></span> Résumé</div>
-        <div class="content">
-            {{ partial "subscription/subscription.html" . }}
-            {{ partial "subscription/subscription.html" . }}
-            {{ partial "subscription/subscription.html" . }}
+    </Section>
+    <Section class="strips">
+        <div class="strip active">
+            <div class="title">My <span class="plus"></span> Journey</div>
+            <div class="content">
+                <section id="tldr-section" class="section narrow">
+                    <div class="tldr-container">
+                        <div class="tldr-content">
+                            <h3 class="tldr-heading">
+                                TL;DR
+                            </h3>
+                            <p class="tldr-text">
+                                Born in India to <a id="parents">this</a> lovely couple. 
+                                Almost got kidnapped by monkeys as a child. 
+                                Got into <a href="https://www.iitg.ac.in/" target="_blank">Indian Insitute of Technology Guwahati</a> with a major in Electronics and Electrical Engineering and a minor in Product Design and... started making films &#128539;. Made <a href="https://www.youtube.com/watch?v=T5bIwhjdjX8&list=PLLFdMj1QmHRv3nHyt8l8qPfuK4XQiPYAJ" target="_blank">short films</a> and <a href="https://www.youtube.com/watch?v=a4rR1K-eA_k" target="_blank">music videos</a> clocking more than a million views and bagged an award or two along the way. 
+                                Designed and developed <a href="https://www.iitg.ac.in/scifac/cep/public_html/index.html" target="_blank">this</a> website. Got an internship at Samsung Research and got fascinated by the <a href="https://github.com/sarveshraj/blockchain-for-healthcare" target="_blank">Blockchain</a> tech space. 
+                                Currently reading <a href="https://www.goodreads.com/book/show/34066798-a-gentleman-in-moscow" target="_blank">A Gentleman in Moscow</a> and working at Adobe in the Cloud Technology unit powering the Creative Cloud Suite and all of its million users.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                {{ partial "subscription/subscription.html" . }}
+                {{ partial "subscription/subscription.html" . }}
+                {{ partial "subscription/subscription.html" . }}
+            </div>
         </div>
-    </div>
-    {{/*  TLDR, long story, online resume  */}}
-
-</Section>
-<script src="{{ .Site.BaseURL }}js/toggleStrips.js"></script>
+        <div class="strip">
+            <div class="title">My <span class="plus"></span> Résumé</div>
+            <div class="content">
+                {{ partial "subscription/subscription.html" . }}
+                {{ partial "subscription/subscription.html" . }}
+                {{ partial "subscription/subscription.html" . }}
+            </div>
+        </div>
+        {{/*  TLDR, long story, online resume  */}}
+    
+    </Section>
+</div>
+<script src="{{ .Site.BaseURL }}js/aboutPage.js"></script>
 {{ end }}
