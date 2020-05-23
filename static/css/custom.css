@@ -817,7 +817,6 @@ figcaption a::after {
 }
 
 @media screen and (max-width:1070px) {
-
     h1,
     h2,
     h3,
@@ -841,7 +840,7 @@ figcaption a::after {
         font-size: 24px;
     }
 
-    blockquote>p {
+    blockquote > p {
         padding-right: 36px;
     }
 
@@ -964,7 +963,6 @@ figcaption a::after {
 }
 
 @media screen and (max-width:540px) {
-
     h1,
     h2,
     h3,
