@@ -817,6 +817,10 @@ figcaption a::after {
 }
 
 @media screen and (max-width:1070px) {
+    .hide-1070 {
+        display: none;
+    }
+
     h1,
     h2,
     h3,
@@ -858,6 +862,9 @@ figcaption a::after {
 }
 
 @media screen and (max-width:737px) {
+    .hide-737 {
+        display: none;
+    }
 
     h1,
     h2,
@@ -960,9 +967,17 @@ figcaption a::after {
     .tldr-content h3 {
         padding: 0 50px;
     }
+
+    .footer-text {
+        margin-bottom: 30px;
+    }
 }
 
 @media screen and (max-width:540px) {
+    .hide-540 {
+        display: none;
+    }
+
     h1,
     h2,
     h3,
@@ -1053,5 +1068,9 @@ figcaption a::after {
 
     .strip.active .content {
         padding: 0.5em;
+    }
+
+    .footer-text {
+        margin: 50px auto 30px;
     }
 }
