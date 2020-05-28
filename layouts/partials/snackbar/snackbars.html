@@ -1,0 +1,10 @@
+<section id="snackbar-container">
+
+    <div class="snackbars">
+      {{ range .Params.snackbars }}
+        <p class="snack">{{.message}} <br> {{.link}}</p>
+      {{ end }}
+    </div>
+
+  <button type="button" id="close-button">x</button>
+</section>
