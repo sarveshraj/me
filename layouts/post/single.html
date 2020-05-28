@@ -21,6 +21,9 @@
         </aside>
         {{ .Content }}
     </article>
+    {{ if isset .Page.Params "snackbars" }}
+    {{ partial "snackbar/snackbars" . }}
+    {{ end }}
 
 
     {{ partial "article/next.html" . }}
@@ -29,4 +32,5 @@
 {{ $script := resources.Get "js/progressBar.js" }}
 <script src="{{ $script.RelPermalink }}"></script>
 <script src="{{ .Site.BaseURL }}js/toggleIndex.js"></script>
+<script src="{{ .Site.BaseURL }}js/snackbar.js"></script>
 {{ end }}

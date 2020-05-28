@@ -4,7 +4,7 @@ date: 2020-04-10
 draft: false
 hero: "/images/computer-display.jpg"
 caption:
-  text: 
+  text:
   attribution: Markus Spiske from Pexels
   attributionLink: https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels
 excerpt: A short guide on what makes software resilient in the world of microservices.
@@ -12,12 +12,17 @@ bar:
   message: Wish to read this article on Medium?
   link: https://medium.com/@sarvesh0803/lets-talk-about-resiliency-37660be5eaf3
   linktext: Click here
-tags: 
+tags:
   - Resiliency
   - Software
   - API
   - Hystrix
   - Fault Tolerance
+
+snackbars:
+  - message: snack
+    link:  "abc"
+
 years: 2020
 authors:
   - Sarvesh Raj
@@ -102,7 +107,7 @@ It provides methods for executing the underlying routines synchronously, asynchr
 
 Here we configure `HystrixCommand` to call a Failure Generator service.
 
-```java 
+```java
 public class FailureGeneratorCommand extends HystrixCommand<String> {
     // Configuring a Jersey Client to connect to the Failure Generator Service
     private final String URI = "https://failuregenerator.com/";
