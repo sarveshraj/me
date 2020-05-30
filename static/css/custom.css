@@ -608,10 +608,6 @@ figcaption a::after {
     scroll-snap-type: y mandatory;
 }
 
-#About hr {
-    margin-bottom: 0;
-}
-
 #About_Hero {
     display: flex;
     justify-content: space-between;
@@ -628,7 +624,6 @@ figcaption a::after {
 
 #About__Hero~.footer-gradient {
     background: unset;
-
 }
 
 .strips {
@@ -714,10 +709,6 @@ figcaption a::after {
     padding-left: calc(5vw - 11.2px);
 }
 
-#tldr-section {
-    padding-top: 4em;
-}
-
 #tldr-section p,
 #tldr-section h3 {
     padding: 0 4rem;
@@ -763,7 +754,6 @@ figcaption a::after {
 }
 
 #resume-section {
-    padding-top: 4em;
     margin: 0 4em;
 }
 
