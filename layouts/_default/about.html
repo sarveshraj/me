@@ -3,23 +3,29 @@
     <Section class="section" relative id="About__Hero">
         <div class="heading-container">
             <h1 class="hero-heading" style="max-width: max-content;">{{ .Title }}</h1>
-            <h4 class="hero-subheading">{{ .Page.Params.subheading | safeHTML }}</h4>
+            <h3 class="hero-subheading">{{ .Page.Params.subheading}}</h3>
+        </div>
+        <div class="headshot-container">
+
         </div>
     </Section>
+{{/*  Add a scroll down button  */}}
+    <hr>
     <Section class="strips">
-        <div class="strip active">
+        <div class="strip">
             <div class="title">My <span class="plus"></span> Journey</div>
             <div class="content">
-                {{ partial "about/tldr.html" . }}
+                {{ partial "about/journey/tldr.html" . }}
                 {{ partial "subscription/subscription.html" . }}
                 {{ partial "subscription/subscription.html" . }}
                 {{ partial "subscription/subscription.html" . }}
             </div>
         </div>
-        <div class="strip">
+        <div class="strip active">
             <div class="title">My <span class="plus"></span> Résumé</div>
             <div class="content">
-                {{ partial "subscription/subscription.html" . }}
+                {{ partial "about/resume/experience.html" . }}
+                {{ partial "about/resume/skills.html" . }}
                 {{ partial "subscription/subscription.html" . }}
                 {{ partial "subscription/subscription.html" . }}
             </div>

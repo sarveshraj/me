@@ -1,7 +1,7 @@
 ---
-title: About Me
+title: Okay, I am still learning the ukelele.
 hero: "/images/hero-3.jpg"
-subheading: <br />If you think about it, an "about" page is one of the highest levels of narcissism; right there with autobiographies, self-portraits, and producing a TV show on your life (I am looking at you, Kardashians).<br /><br />Well, now that you are already here, allow me to present to you my most humble brag.
+subheading: But hey, thanks for showing interest. Scroll on to know more about me.
 layout: about
 hideFooter: true
 ---

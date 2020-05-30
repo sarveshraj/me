@@ -3,7 +3,7 @@ html {
 }
 
 .hero-subheading {
-    margin: 0;
+    margin: 10px 0 0 0;
 }
 
 th {
@@ -608,7 +608,17 @@ figcaption a::after {
     scroll-snap-type: y mandatory;
 }
 
-#About__Hero h4 {
+#About hr {
+    margin-bottom: 0;
+}
+
+#About_Hero {
+    display: flex;
+    justify-content: space-between;
+}
+
+#About__Hero h3,
+#Articles__Hero h3 {
     max-width: unset;
 }
 
@@ -640,6 +650,8 @@ figcaption a::after {
     justify-content: center;
     overflow: scroll;
     height: 100vh;
+    background-color: var(--background-color);
+    color: var(--primary);
 }
 
 .strip .title {
@@ -684,7 +696,7 @@ figcaption a::after {
 
 .strip.active .content {
     opacity: 1;
-    padding: 4em;
+    padding-bottom: 4em;
     width: 100%;
 }
 
@@ -692,30 +704,23 @@ figcaption a::after {
     content: "-";
 }
 
-.strip:nth-child(1) {
-    background-color: var(--background-color);
-    color: var(--primary);
-}
+/* Journey */
 
 .strip:nth-child(1).active {
     grid-column: 1 / span 9;
 }
 
-.strip:nth-child(2) {
-    background-color: var(--articleText);
-    color: var(--background-color);
+.strip:nth-child(1).active .content {
+    padding-left: calc(5vw - 11.2px);
 }
 
-.strip:nth-child(2).active {
-    grid-column: 2 / span 9;
+#tldr-section {
+    padding-top: 4em;
 }
 
-#tldr-section p {
-    padding: 0 2rem;
-}
-
+#tldr-section p,
 #tldr-section h3 {
-    padding: 0 2rem;
+    padding: 0 4rem;
 }
 
 .tldr-container {
@@ -727,7 +732,7 @@ figcaption a::after {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 64px 0 55px;
+    padding: 34px 0 25px;
     margin: 10px auto 100px;
     background: var(--card);
     -webkit-box-shadow: 0 4px 50px rgba(0, 0, 0, .05);
@@ -735,6 +740,69 @@ figcaption a::after {
     z-index: 1;
 }
 
+.tldr-content>* {
+    max-width: 1070px;
+}
+
+/* Resume */
+
+.strip:nth-child(2).active {
+    grid-column: 2 / span 9;
+    flex-direction: row-reverse;
+    padding-left: 0;
+}
+
+.strip:nth-child(2) .title {
+    padding: 0 calc(5vw - 11.2px);
+}
+
+.strip:nth-child(2) h2,
+.strip:nth-child(2) h3,
+.strip:nth-child(2) h4 {
+    margin: 0;
+}
+
+#resume-section {
+    padding-top: 4em;
+    margin: 0 4em;
+}
+
+.experience {
+    margin-top: 30px;
+}
+
+.experience .metadata>* {
+    display: inline;
+}
+.experience .metadata > p {
+    text-transform: uppercase;
+}
+.experience .highlights {
+    margin-top: 10px;
+}
+
+.experience .highlights ul,
+.experience .highlights p {
+    max-width: none;
+    padding-bottom: 0;
+}
+
+/* Skills */
+#skills-section {
+    padding-top: 4em;
+    margin: 0 4em;
+}
+
+.skills-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+}
+
+.skill-type {
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
 @supports (display: grid) {
     @media (min-width: 768px) {
         .timeline-entry {
@@ -844,7 +912,7 @@ figcaption a::after {
         font-size: 24px;
     }
 
-    blockquote > p {
+    blockquote>p {
         padding-right: 36px;
     }
 
@@ -946,10 +1014,6 @@ figcaption a::after {
         font-weight: normal;
         line-height: 0em;
         margin-left: 10px;
-    }
-
-    .strip.active .content {
-        padding: 1em;
     }
 
     .strip .title .plus::before {
@@ -1066,11 +1130,12 @@ figcaption a::after {
         margin-bottom: 30px;
     }
 
-    .strip.active .content {
-        padding: 0.5em;
-    }
-
     .footer-text {
         margin: 50px auto 30px;
+    }
+
+    #tldr-section p,
+    #tldr-section h3 {
+        padding: 0 2rem;
     }
 }

@@ -9,6 +9,5 @@ stripTitles.forEach((stripTitle) => {
 tippy('#parents', {
     content: '<img src="/images/parents.jpeg" id="parents-img"></img>',
     allowHTML: true,
-    interactive: true,
-    placement: 'bottom'
+    placement: 'bottom',
 });
