@@ -9,7 +9,7 @@
 
         </div>
     </Section>
-{{/*  Add a scroll down button  */}}
+    {{/*  Add a scroll down button  */}}
     <hr>
     <Section class="strips">
         <div class="strip">
@@ -24,14 +24,12 @@
         <div class="strip active">
             <div class="title">My <span class="plus"></span> Résumé</div>
             <div class="content">
-                {{ partial "about/resume/experience.html" . }}
+                {{ partial "about/resume/resume-card.html" . }}
+                {{ partial "about/resume/experience.html"}}
                 {{ partial "about/resume/skills.html" . }}
-                {{ partial "subscription/subscription.html" . }}
-                {{ partial "subscription/subscription.html" . }}
+                {{ partial "about/resume/education.html" . }}
             </div>
         </div>
-        {{/*  TLDR, long story, online resume  */}}
-    
     </Section>
 </div>
 <script src="{{ .Site.BaseURL }}js/aboutPage.js"></script>
