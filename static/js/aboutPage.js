@@ -1,8 +1,14 @@
 let stripTitles = document.querySelectorAll('.title');
 
+if (navigator.appVersion.indexOf("Chrome/") != -1) {
+    stripTitles.forEach((title) => title.firstElementChild.classList.add("chrome"))
+}
+
 stripTitles.forEach((stripTitle) => {
     stripTitle.addEventListener('click', () => {
-        stripTitles.forEach((title) => title.parentNode.classList.toggle('active'));
+        stripTitles.forEach((title) => {
+            title.firstElementChild.innerHTML = title.parentNode.classList.toggle('active') ? "-" : "+";
+        });
     })
 });
 

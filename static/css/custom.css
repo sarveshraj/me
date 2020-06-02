@@ -661,17 +661,19 @@ figcaption a::after {
     align-self: center;
 }
 
-.strip .title .plus::before {
-    content: "+";
-    letter-spacing: 0;
-    margin-bottom: 0.6em;
+.strip .title .plus {
     border: 1px solid transparent;
     border-radius: 100%;
     -webkit-transition: border-color .3s ease-in-out;
     transition: border-color .3s ease-in-out;
+    letter-spacing: initial;
 }
 
-.strip .title:hover .plus::before {
+.strip .title .plus.chrome {
+    padding-bottom: 3px;
+}
+
+.strip .title:hover .plus {
     border-color: inherit;
 }
 
@@ -695,9 +697,9 @@ figcaption a::after {
     width: 100%;
 }
 
-.strip.active .title .plus::before {
+/* .strip.active .title .plus::before {
     content: "-";
-}
+} */
 
 /* Journey */
 
@@ -829,7 +831,7 @@ figcaption a::after {
 }
 
 .education {
-    margin: 10px auto 30px;
+    margin: 20px auto 30px;
 }
 
 .education:last-of-type {
