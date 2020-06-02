@@ -17,3 +17,8 @@ tippy('#parents', {
     allowHTML: true,
     placement: 'bottom',
 });
+
+tippy('#hugo', {
+    content: 'This website runs on Hugo!',
+    placement: 'right',
+});
