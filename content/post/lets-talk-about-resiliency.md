@@ -1,5 +1,5 @@
 ---
-title: "Let's talk about resiliency"
+title: Let's talk about resiliency
 date: 2020-04-10
 draft: false
 hero: "/images/computer-display.jpg"
@@ -19,9 +19,6 @@ tags:
   - Hystrix
   - Fault Tolerance
 years: 2020
-authors:
-  - Sarvesh Raj
-
 ---
 In my team, we have this concept of Tech Fridays, which are a series of monthly meet-ups where we discuss and disseminate knowledge residing in our team via tech talks.
 
@@ -41,7 +38,9 @@ You would need to know some basic concepts of operating systems and computer sof
 
 **Semaphores:** A semaphore is essentially a counter which controls access to a shared resource. What a semaphore counts is the number of permits available to the resource. If the counter is greater than zero, then access is allowed. If it is zero, then access is denied. Thus if a thread wants to access a resource, it must first acquire a permit from the semaphore.
 
-**Synchronous requests:** A synchronous HTTP request is one where the caller thread is blocked until the call to the external service completes. In a synchronous request, the HTTP connection is open until the response is received. Asynchronous requests: Contrary to a synchronous request, an asynchronous request calls the server and continues with the next instruction. In this type of request, the main thread hands the waiting-for-response function to a worker thread and continues with the execution of the next line of code.
+**Synchronous requests:** A synchronous HTTP request is one where the caller thread is blocked until the call to the external service completes. In a synchronous request, the HTTP connection is open until the response is received. 
+
+**Asynchronous requests:** Contrary to a synchronous request, an asynchronous request calls the server and continues with the next instruction. In this type of request, the main thread hands the waiting-for-response function to a worker thread and continues with the execution of the next line of code.
 
 **Latency:** Latency is equivalent to delay. In the context of HTTP requests and microservices, latency is the time it takes to get a response back from any external service.
 
@@ -232,7 +231,7 @@ This command’s `run()` method will fail on every execution. However, the calle
 
 ***
 
-Alright. This concludes the article. Hopefully, you enjoyed reading this and learned something new. Please feel free to leave any sort of feedback in the comments below.
+Alright. This concludes the article. Hopefully, you enjoyed reading this and learned something new.
 
 Until next time. Stay indoors. Stay safe.
 
