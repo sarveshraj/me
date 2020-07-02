@@ -1,7 +1,8 @@
 ---
-title: Okay, I am still learning the ukelele.
-hero: "/images/hero-3.jpg"
-subheading: But hey, thanks for showing interest. Scroll on to know more about me.
+title: About Me
+hero: 
+  heading: Okay, I am still learning the ukelele.
+  subheading: But hey, thanks for showing interest. Scroll down to know more.
 layout: about
 hideFooter: true
 ---
