@@ -13,7 +13,7 @@
                 <div class="article-tags">
                     {{ range .Page.Params.tags }}
                     <a href="/tags/{{ . | urlize}}" class="tag">
-                        #{{ . }}
+                        {{ . }}
                     </a>
                     {{ end }}
                 </div>
