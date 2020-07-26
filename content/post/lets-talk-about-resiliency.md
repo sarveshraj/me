@@ -7,7 +7,7 @@ caption:
   text: 
   attribution: Markus Spiske from Pexels
   attributionLink: https://www.pexels.com/@markusspiske?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels
-excerpt: A short guide on what makes software resilient in the world of microservices.
+excerpt: A short guide on making resilient software in the world of microservices.
 bar:
   message: Wish to read this article on Medium?
   link: https://medium.com/@sarvesh0803/lets-talk-about-resiliency-37660be5eaf3
